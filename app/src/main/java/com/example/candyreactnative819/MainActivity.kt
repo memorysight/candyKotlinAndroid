@@ -5,8 +5,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.layout.*
+//import androidx.compose.foundation.layout.ColumnScopeInstance.align
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -15,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -70,6 +73,18 @@ fun GameBoard(
     }
 
     Text(text = "Score: $scoreDisplay", modifier = Modifier.align(Alignment.CenterHorizontally))
+}
+
+private fun Modifier.draggable(orientation: Orientation, onDragStarted: suspend CoroutineScope.(startedPosition: Offset) -> Unit, onDragStopped: suspend CoroutineScope.(velocity: Float) -> Unit, onDrag: Any): Modifier {
+
+}
+
+fun onDragEnd() {
+    TODO("Not yet implemented")
+}
+
+fun onDragStart(index: Int) {
+    TODO("Not yet implemented")
 }
 
 @Composable
@@ -148,6 +163,11 @@ fun CandyReactNative819Theme(
     ProvideTextStyle(CandyTextStyle) {
         content()
     }
+}
+
+@Composable
+fun ProvideTextStyle(candyTextStyle: TextStyle, content: @Composable () -> Unit) {
+
 }
 
 private val CandyTextStyle = TextStyle(
